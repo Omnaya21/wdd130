@@ -9,7 +9,6 @@
 
 .google-sans-light {
   font-family: "Google Sans", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings:
@@ -122,7 +121,7 @@ h2 {
 }
 .msg {
   background-color: var(--paragraph-background-color);
-  color: var(--paragraph-color-on-white);
+  color: var(--paragraph-color-on-color);
 }
 .msg h2 {
   color: var(--headline-color-on-color);
