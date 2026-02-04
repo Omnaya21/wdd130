@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-image: url("./w05_circles.jpg");
+    background-size: cover;
+    height: 650px;
+}
+
+main {
+    background-color: gray;
+    padding: 50px;
+    align-items: center;
+}
+
+img {
+    border: 15px solid darkgray;
+    max-width: 350px;
+    border-radius: 50%;
+}
+
+#content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+h1 {
+    margin: 50px 0;
+}
+
+footer {
+    background-color: steelblue;
+    color: white;
+}
+footer p {
+    padding: 25px;
+}
