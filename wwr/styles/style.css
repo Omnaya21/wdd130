@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Gravitas+One&display=swap');
 
 .gravitas-one-regular {
-  font-family: "Gravitas One", serif;
+  font-family: "Gravitas One", Times, serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .google-sans-light {
-  font-family: "Google Sans", sans-serif;
+  font-family: "Google Sans", Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-variation-settings:
@@ -23,8 +23,8 @@
   --accent2-color: #F7F5FB;
 
   /* change the values below to your chosen font(s) */
-  --heading-font: "Gravitas One", serif;
-  --paragraph-font: "Google Sans", sans-serif;
+  --heading-font: "Gravitas One", Times, serif;
+  --paragraph-font: "Google Sans", Helvetica, sans-serif;
 
   /* these colors below should be chosen from among your palette colors above */
   --headline-color-on-white: #396E94;  /* headlines on a white background */ 
