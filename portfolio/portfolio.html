@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Omar Navarro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #4ecca3;
+            --accent-dark: #3db890;
+            --text: #ffffff;
+            --text-light: #b0b0b0;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Header */
+        .page-header {
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .page-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(78, 204, 163, 0.2);
+            border-color: var(--accent);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.1) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0.1) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .project-card:nth-child(2) .project-image {
+            background: linear-gradient(135deg, #6b8e95 0%, #4a6f76 100%);
+        }
+
+        .project-card:nth-child(3) .project-image {
+            background: linear-gradient(135deg, #a59071 0%, #8b7555 100%);
+        }
+
+        .project-card:nth-child(4) .project-image {
+            background: linear-gradient(135deg, #7a9b8c 0%, #5d7f70 100%);
+        }
+
+        .project-card:nth-child(5) .project-image {
+            background: linear-gradient(135deg, #9b7a84 0%, #7f5d66 100%);
+        }
+
+        .project-card:nth-child(6) .project-image {
+            background: linear-gradient(135deg, #8a8d9b 0%, #6e717f 100%);
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(78, 204, 163, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(78, 204, 163, 0.3);
+        }
+
+        /* Accomplishments */
+        .accomplishments-list {
+            display: grid;
+            gap: 30px;
+        }
+
+        .accomplishment-item {
+            background: var(--card-bg);
+            padding: 40px;
+            border-left: 4px solid var(--accent);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInLeft 0.8s ease-out both;
+        }
+
+        .accomplishment-item:nth-child(1) { animation-delay: 0.1s; }
+        .accomplishment-item:nth-child(2) { animation-delay: 0.2s; }
+        .accomplishment-item:nth-child(3) { animation-delay: 0.3s; }
+        .accomplishment-item:nth-child(4) { animation-delay: 0.4s; }
+        .accomplishment-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .accomplishment-item:hover {
+            border-left-width: 8px;
+            padding-left: 36px;
+            box-shadow: 0 10px 40px rgba(78, 204, 163, 0.1);
+        }
+
+        .accomplishment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .accomplishment-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .accomplishment-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .accomplishment-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out both;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(78, 204, 163, 0.1);
+        }
+
+        .skill-category:nth-child(1) { animation-delay: 0.1s; }
+        .skill-category:nth-child(2) { animation-delay: 0.2s; }
+        .skill-category:nth-child(3) { animation-delay: 0.3s; }
+        .skill-category:nth-child(4) { animation-delay: 0.4s; }
+
+        .skill-category-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+            font-weight: 300;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 120px;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .accomplishment-header {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="landing-page.html" class="logo">Omar Navarro</a>
+            <ul class="nav-links">
+                <li><a href="landing-page.html">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#accomplishments">Accomplishments</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">Portfolio</h1>
+            <p class="page-subtitle">
+                15+ years of embedded systems development experience specializing in access control, 
+                biometric authentication, RFID solutions, and real-time systems for enterprise applications.
+            </p>
+        </header>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">🎫</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Ticketing System</h3>
+                        <p class="project-description">
+                            Designed automated bus station smart card-based ticketing system deployed 
+                            across 47+ stations serving 600,000+ daily users. Improved transaction 
+                            efficiency by 30% using Mifare smart cards and real-time database synchronization.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C/C++</span>
+                            <span class="tag">Mifare</span>
+                            <span class="tag">SQL Server</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">🔐</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Security Access Control System</h3>
+                        <p class="project-description">
+                            Developed enterprise-wide access control devices managing 500+ sites and 
+                            1,500+ doors with TCP/IP and modem communication. Integrated biometric 
+                            and RFID authentication for enhanced security.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C</span>
+                            <span class="tag">TCP/IP</span>
+                            <span class="tag">RFID</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Identity Verification System</h3>
+                        <p class="project-description">
+                            Created authentication system using Mifare cards and Windows CE, wirelessly 
+                            connecting to SQL Server database. Enhanced security across 250+ federal 
+                            parking sites with real-time verification.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Windows CE</span>
+                            <span class="tag">Wireless</span>
+                            <span class="tag">Mifare</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">⏰</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Time & Attendance System</h3>
+                        <p class="project-description">
+                            Designed centralized system for construction company across multiple locations. 
+                            Integrated RFID cards and fingerprint biometric readers with real-time 
+                            synchronization between SQL Server and Oracle databases for payroll processing.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Biometrics</span>
+                            <span class="tag">Oracle</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">🎬</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automated Movie Rental System</h3>
+                        <p class="project-description">
+                            Designed self-service movie rental system using fingerprint authentication. 
+                            Reduced labor costs by 60%, handled 5,000+ movies, and served 500+ daily 
+                            customers with automated inventory management.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Fingerprint</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">💧</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Irrigation Control Systems</h3>
+                        <p class="project-description">
+                            Led engineering efforts for high-volume irrigation control devices (100K units 
+                            annually). Developed diagnostic system reducing product returns by 80% and 
+                            optimized firmware reducing bugs by 60%.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C</span>
+                            <span class="tag">Assembly</span>
+                            <span class="tag">PIC</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Accomplishments Section -->
+        <section id="accomplishments" class="section">
+            <h2 class="section-title">Key Accomplishments</h2>
+            <div class="accomplishments-list">
+                <article class="accomplishment-item">
+                    <div class="accomplishment-header">
+                        <h3 class="accomplishment-title">Smart Ticketing System - 600K Daily Users</h3>
+                        <span class="accomplishment-date">2002-2010</span>
+                    </div>
+                    <p class="accomplishment-description">
+                        Led development team at InteLogik to create automated bus station smart card-based 
+                        ticketing system deployed across 47+ stations serving 600,000+ daily users. Improved 
+                        transaction efficiency by 30% through optimized embedded software architecture.
+                    </p>
+                </article>
+
+                <article class="accomplishment-item">
+                    <div class="accomplishment-header">
+                        <h3 class="accomplishment-title">Reduced Product Returns by 80%</h3>
+                        <span class="accomplishment-date">1997-2001</span>
+                    </div>
+                    <p class="accomplishment-description">
+                        At RainBird Mexico, developed comprehensive diagnostic system for electromechanical 
+                        irrigation equipment, reducing product returns by 80%. Re-designed and optimized 
+                        firmware, reducing software bugs by 60% and improving efficiency by 20%.
+                    </p>
+                </article>
+
+                <article class="accomplishment-item">
+                    <div class="accomplishment-header">
+                        <h3 class="accomplishment-title">$500K+ Cost Savings Through In-House Development</h3>
+                        <span class="accomplishment-date">1997-2001</span>
+                    </div>
+                    <p class="accomplishment-description">
+                        Led in-house development of 3 new irrigation control products at RainBird, saving 
+                        the company over $500,000 in external development costs while maintaining high 
+                        quality standards for 100K+ annual units.
+                    </p>
+                </article>
+
+                <article class="accomplishment-item">
+                    <div class="accomplishment-header">
+                        <h3 class="accomplishment-title">Enterprise Security Access Control - 500+ Sites</h3>
+                        <span class="accomplishment-date">2002-2010</span>
+                    </div>
+                    <p class="accomplishment-description">
+                        Developed custom security access control devices managing 500+ sites and 1,500+ doors 
+                        with TCP/IP and modem communication. Integrated biometric and RFID authentication to 
+                        enhance security for major clients including Mexican government projects.
+                    </p>
+                </article>
+
+                <article class="accomplishment-item">
+                    <div class="accomplishment-header">
+                        <h3 class="accomplishment-title">60% Reduction in Invoice Processing Time</h3>
+                        <span class="accomplishment-date">2001-2002</span>
+                    </div>
+                    <p class="accomplishment-description">
+                        At ASM Security, developed automated invoicing system for 3,000+ customers, reducing 
+                        invoice processing time by 60% through streamlined database integration and automated 
+                        workflow optimization.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>C (Expert)</li>
+                        <li>C++ (Expert)</li>
+                        <li>C# (Advanced)</li>
+                        <li>Assembly (8086, 8051, 68K)</li>
+                        <li>Pascal & Delphi</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Hardware & Microcontrollers</h3>
+                    <ul class="skill-list">
+                        <li>PIC Microcontrollers</li>
+                        <li>Motorola 68K</li>
+                        <li>Toshiba TCLS870</li>
+                        <li>RFID Readers & Mifare Cards</li>
+                        <li>Fingerprint Biometric Readers</li>
+                        <li>Digital/Analog Circuits</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Protocols & Interfaces</h3>
+                    <ul class="skill-list">
+                        <li>Ethernet TCP/IP</li>
+                        <li>RS-232 & RS-485</li>
+                        <li>I2C Communication</li>
+                        <li>V42bis & V90 Modems</li>
+                        <li>Wireless Communication</li>
+                        <li>Database Integration</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Tools & Software</h3>
+                    <ul class="skill-list">
+                        <li>Visual Studio & C++ Builder</li>
+                        <li>Microchip & Hi-Tech Compilers</li>
+                        <li>SQL Server, MySQL, Oracle</li>
+                        <li>Logic Analyzers & Oscilloscopes</li>
+                        <li>AutoCAD & Visio</li>
+                        <li>PVCS Version Manager</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#" class="footer-link">LinkedIn</a>
+                <a href="#" class="footer-link">GitHub</a>
+                <a href="mailto:omar.navarroy@yahoo.com" class="footer-link">Email</a>
+                <a href="landing-page.html" class="footer-link">Back to Home</a>
+            </div>
+            <p class="copyright">&copy; 2026 Omar Navarro. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

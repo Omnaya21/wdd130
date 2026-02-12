@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    z-index: 1000;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.logo span {
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #4ecca3;
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 60px 60px;
+}
+
+/* Diagonal Photo Section */
+.photo-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.photo-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #1a1a1a;
+    z-index: 1;
+}
+
+.photo-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    position: relative;
+    z-index: 2;
+    animation: zoomIn 1.5s ease-out;
+}
+
+.accent-dot {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    width: 20px;
+    height: 20px;
+    background: #4ecca3;
+    border-radius: 50%;
+    z-index: 3;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Content Section */
+.content {
+    position: relative;
+    z-index: 10;
+    margin-left: 50%;
+    padding-left: 100px;
+    max-width: 700px;
+    animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.greeting {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #b0b0b0;
+}
+
+.greeting strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.tagline {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+}
+
+.tagline .highlight {
+    color: #4ecca3;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #b0b0b0;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+/* Links */
+.links {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.link-btn {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 15px 35px;
+    border: 2px solid #4ecca3;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #4ecca3;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.link-btn:hover::before {
+    left: 0;
+}
+
+.link-btn:hover {
+    color: #0a0a0a;
+}
+
+.link-btn.primary {
+    background: #4ecca3;
+    color: #0a0a0a;
+}
+
+.link-btn.primary::before {
+    background: transparent;
+}
+
+.link-btn.primary:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+/* Contact Info */
+.contact-info {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    font-weight: 300;
+}
+
+.contact-info p {
+    margin-bottom: 8px;
+}
+
+/* Social Links */
+.social-links {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 1000;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.social-links::before {
+    content: 'Follow Me';
+    position: absolute;
+    right: 50px;
+    top: -5px;
+    font-size: 0.75rem;
+    color: #4ecca3;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.2em;
+}
+
+.social-links::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    bottom: -80px;
+    width: 2px;
+    height: 60px;
+    background: #4ecca3;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #4ecca3;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .content {
+        padding-left: 60px;
+    }
+
+    .tagline {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 968px) {
+    nav {
+        padding: 20px 30px;
+    }
+
+    .container {
+        padding: 100px 30px 60px;
+        flex-direction: column;
+    }
+
+    .photo-section {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        margin-bottom: 40px;
+    }
+
+    .accent-dot {
+        bottom: 40px;
+        left: 30px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding-left: 0;
+        max-width: 100%;
+    }
+
+    .tagline {
+        font-size: 2.5rem;
+    }
+
+    .links {
+        flex-direction: column;
+    }
+
+    .link-btn {
+        text-align: center;
+    }
+
+    .social-links {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        flex-direction: row;
+        margin-top: 40px;
+    }
+
+    .social-links::before,
+    .social-links::after {
+        display: none;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tagline {
+        font-size: 2rem;
+    }
+
+    .greeting {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
