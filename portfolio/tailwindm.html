@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Navarro | Embedded Systems Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .mono { font-family: 'Fira Code', monospace; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 selection:bg-emerald-500/30">
+
+    <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="Logo" class="h-8 w-8 rounded border border-emerald-500/30">
+                <span class="mono text-emerald-400 font-bold text-sm md:text-base hidden xs:block">OMAR_NAVARRO</span>
+            </div>
+            <div class="flex space-x-4 md:space-x-8 text-[10px] md:text-sm uppercase tracking-widest font-medium">
+                <a href="#projects" class="hover:text-emerald-400 transition">Work</a>
+                <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
+                <a href="resume.pdf" class="text-emerald-400 border border-emerald-500/50 px-3 py-1 md:px-4 md:py-2 rounded hover:bg-emerald-500/10 transition">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center px-4 md:px-6 max-w-5xl mx-auto pt-20">
+        <p class="mono text-emerald-400 mb-2 md:mb-4 text-sm md:text-lg">// Senior Embedded Engineer</p>
+        <h1 class="text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight">
+            Omar Navarro.
+        </h1>
+        <h2 class="text-xl md:text-4xl lg:text-5xl font-semibold text-slate-400 mb-6 leading-tight">
+            I bridge the gap between <span class="text-slate-100">logic</span> and <span class="text-slate-100">hardware</span>.
+        </h2>
+        <p class="max-w-xl text-slate-400 text-base md:text-lg mb-8 leading-relaxed">
+            Specializing in reclaiming legacy systems (M68k) and scaling firmware for infrastructure serving 600k+ daily users.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#projects" class="text-center bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded font-bold transition">View My Work</a>
+            <div class="flex items-center justify-center space-x-6 text-2xl text-slate-500 py-2">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 md:py-24 max-w-5xl mx-auto px-4 md:px-6">
+        <h3 class="mono text-emerald-400 mb-10 uppercase tracking-widest flex items-center text-sm md:text-base">
+            <span class="mr-4">02.</span> Projects
+            <span class="ml-4 h-[1px] bg-slate-800 flex-grow"></span>
+        </h3>
+
+        <div class="space-y-20 md:space-y-32">
+            
+            <div class="group grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="md:col-span-7 order-2 md:order-1">
+                    <p class="mono text-emerald-400 text-xs mb-2">Legacy Restoration</p>
+                    <h4 class="text-2xl md:text-3xl font-bold text-white mb-4 italic">M68K System Recovery</h4>
+                    <div class="bg-slate-900 p-5 md:p-6 rounded-lg border border-slate-800 shadow-xl mb-4">
+                        <p class="text-slate-300 text-sm md:text-base">
+                            Rescued a $4M product line by bringing development in-house. Saved <strong>$1.5M/year</strong> through expert debugging with ROM Emulators.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mono text-[10px] text-slate-400 uppercase">
+                        <span class="bg-slate-800 px-2 py-1 rounded">Motorola 68k</span>
+                        <span class="bg-slate-800 px-2 py-1 rounded">Assembly</span>
+                        <span class="bg-slate-800 px-2 py-1 rounded">ICE</span>
+                    </div>
+                </div>
+                <div class="md:col-span-5 order-1 md:order-2 bg-slate-900/50 border border-slate-800 h-48 md:h-64 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-microchip text-5xl text-slate-800"></i>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <section id="skills" class="py-16 md:py-24 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto px-4 md:px-6">
+            <h3 class="mono text-emerald-400 mb-10 md:mb-16 uppercase tracking-widest text-left text-sm md:text-base flex items-center">
+                <span class="mr-4 text-slate-600">03.</span> Technical Arsenal
+            </h3>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-left">
+                
+                <div class="p-4 md:p-6 border border-slate-800 rounded-lg bg-slate-950/50 hover:border-emerald-500/50 transition duration-300">
+                    <i class="fas fa-microchip text-emerald-500 mb-3 md:mb-4 text-lg md:text-xl"></i>
+                    <h4 class="text-white font-bold text-sm md:text-lg mb-2">Firmware</h4>
+                    <p class="text-[10px] md:text-xs text-slate-500 mono leading-relaxed">C, C++, M68K, 8051, PIC, RTOS, Assembly.</p>
+                </div>
+
+                <div class="p-4 md:p-6 border border-slate-800 rounded-lg bg-slate-950/50 hover:border-emerald-500/50 transition duration-300">
+                    <i class="fas fa-network-wired text-emerald-500 mb-3 md:mb-4 text-lg md:text-xl"></i>
+                    <h4 class="text-white font-bold text-sm md:text-lg mb-2">Comms</h4>
+                    <p class="text-[10px] md:text-xs text-slate-500 mono leading-relaxed">I2C, SPI, UART, RS-485, TCP/IP, Ethernet.</p>
+                </div>
+
+                <div class="p-4 md:p-6 border border-slate-800 rounded-lg bg-slate-950/50 hover:border-emerald-500/50 transition duration-300">
+                    <i class="fas fa-code text-emerald-500 mb-3 md:mb-4 text-lg md:text-xl"></i>
+                    <h4 class="text-white font-bold text-sm md:text-lg mb-2">Software</h4>
+                    <p class="text-[10px] md:text-xs text-slate-500 mono leading-relaxed">C#, .NET, Delphi, SQL Server, Visual Studio.</p>
+                </div>
+
+                <div class="p-4 md:p-6 border border-slate-800 rounded-lg bg-slate-950/50 hover:border-emerald-500/50 transition duration-300">
+                    <i class="fas fa-tools text-emerald-500 mb-3 md:mb-4 text-lg md:text-xl"></i>
+                    <h4 class="text-white font-bold text-sm md:text-lg mb-2">Hardware</h4>
+                    <p class="text-[10px] md:text-xs text-slate-500 mono leading-relaxed">Oscilloscopes, Logic Analyzers, ICE, ROM Emulators.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 border-t border-slate-800 text-center px-4">
+        <h2 class="text-2xl font-bold text-white mb-4">Ready to build?</h2>
+        <a href="mailto:your@email.com" class="inline-block border border-emerald-500 text-emerald-500 px-6 py-3 rounded font-bold mono text-sm uppercase">Get In Touch</a>
+    </footer>
+
+</body>
+</html>

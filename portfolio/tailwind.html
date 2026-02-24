@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Systems Portfolio | [Your Name]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="./images/logomar.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'Fira Code', monospace; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 selection:bg-emerald-500/30">
+
+    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="./images/logomar.png" alt="Omar Navarro Logo" class="h-10 w-10 rounded border border-emerald-500/30">
+                <span class="mono text-emerald-400 font-bold tracking-tighter hidden sm:block">OMAR_NAVARRO</span>
+            </div>
+            <span class="mono text-emerald-400 font-bold">&lt;SYS_INIT /&gt;</span>
+            <div class="space-x-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
+                <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
+                <a href="/resume.pdf" class="border border-emerald-500/50 px-4 py-2 rounded text-emerald-400 hover:bg-emerald-500/10 transition">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto">
+        <p class="mono text-emerald-400 mb-4 tracking-tighter text-lg">// Hello, world. I am</p>
+        <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
+            Omar Navarro.
+        </h1>
+        <h2 class="text-3xl md:text-5xl font-semibold text-slate-400 mb-8 leading-tight">
+            I bridge the gap between <span class="text-slate-100">logic</span> and <span class="text-slate-100">hardware</span>.
+        </h2>
+        <p class="max-w-xl text-slate-400 text-lg mb-10 leading-relaxed">
+            Embedded Software Engineer specializing in real-time systems, low-level drivers, and power-efficient firmware for ARM-based microcontrollers.
+        </p>
+        <div class="flex space-x-4">
+            <a href="#projects" class="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded font-bold transition">View Portfolio</a>
+            <div class="flex items-center space-x-6 px-6 text-2xl text-slate-500">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 max-w-5xl mx-auto px-6">
+      <h3 class="mono text-emerald-400 mb-16 uppercase tracking-widest flex items-center">
+          <span class="mr-4">01.</span> Background
+          <span class="ml-4 h-[1px] bg-slate-800 flex-grow"></span>
+      </h3>
+      <div class="grid md:grid-cols-2 gap-12 items-center">          
+          <div>              
+              <p class="text-slate-400 mb-4 leading-relaxed">
+                  I am a Senior Embedded Software Engineer with over 12 years of experience building the digital-to-physical bridge. My career has been defined by a deep curiosity for how things work at the lowest level—from the legacy logic of the <span class="text-white font-semibold">Motorola 68000</span> to modern high-scale IoT architectures.
+              </p>
+              <p class="text-slate-400 leading-relaxed">
+                  I specialize in "rescue missions"—taking complex, undocumented, or failing projects and transforming them into efficient, in-house success stories. Whether it's managing data for <span class="text-white font-semibold">600,000 daily commuters</span> or optimizing firmware for mass production, I focus on stability, cost-efficiency, and clean architecture.
+              </p>
+          </div>
+          <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+              <div class="relative bg-slate-900 rounded-lg p-8 border border-slate-800">
+                  <ul class="space-y-4 mono text-sm text-emerald-300">
+                      <li class="flex items-center"><i class="fas fa-caret-right mr-3 text-emerald-500"></i> Full SDLC Management</li>
+                      <li class="flex items-center"><i class="fas fa-caret-right mr-3 text-emerald-500"></i> Legacy Code Modernization</li>
+                      <li class="flex items-center"><i class="fas fa-caret-right mr-3 text-emerald-500"></i> Hardware-Software Co-Design</li>
+                      <li class="flex items-center"><i class="fas fa-caret-right mr-3 text-emerald-500"></i> Bilingual Project Leadership</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-24 max-w-5xl mx-auto px-6">
+    <h3 class="mono text-emerald-400 mb-16 uppercase tracking-widest flex items-center">
+        <span class="mr-4">02.</span> Major Achievements
+        <span class="ml-4 h-[1px] bg-slate-800 flex-grow"></span>
+    </h3>
+
+    <div class="space-y-32">
+        
+        <div class="group relative grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7 z-10">
+                <p class="mono text-emerald-400 text-sm mb-2">Legacy Recovery & Cost Optimization</p>
+                <h4 class="text-3xl font-bold text-white mb-6 group-hover:text-emerald-400 transition italic">M68K Core Product Restoration</h4>
+                <div class="bg-slate-900 p-6 rounded-lg border border-slate-800 shadow-xl mb-6">
+                    <p class="text-slate-300 leading-relaxed">
+                        Rescued a <span class="text-white font-semibold">$4M firmware product line</span> after external vendor failure. 
+                        By bringing development in-house and debugging complex timing issues using <strong>ROM Emulators and Logic Analyzers</strong>, 
+                        I reduced external costs by 70%, saving the company <span class="text-emerald-400 font-bold">$1.5M annually</span>.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 mono text-xs text-slate-400">
+                    <span>Motorola 68331</span>
+                    <span>Toshiba TCLS-870</span>
+                    <span>Assembly</span>
+                    <span>System Diagnostics</span>
+                </div>
+            </div>
+            <div class="md:col-span-5 bg-slate-950 border border-slate-800 h-64 rounded-xl flex items-center justify-center overflow-hidden">
+                <i class="fas fa-microchip text-6xl text-slate-800 group-hover:text-emerald-500/20 transition-all duration-500"></i>
+            </div>
+        </div>
+
+        <div class="group relative grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-5 order-2 md:order-1 bg-slate-950 border border-slate-800 h-64 rounded-xl flex items-center justify-center overflow-hidden">
+                <i class="fas fa-bus text-6xl text-slate-800 group-hover:text-emerald-500/20 transition-all duration-500"></i>
+            </div>
+            <div class="md:col-span-7 order-1 md:order-2 md:text-right z-10">
+                <p class="mono text-emerald-400 text-sm mb-2">High-Scale Infrastructure</p>
+                <h4 class="text-3xl font-bold text-white mb-6 group-hover:text-emerald-400 transition italic">Mass Transit Automated Ticketing</h4>
+                <div class="bg-slate-900 p-6 rounded-lg border border-slate-800 shadow-xl mb-6 text-left">
+                    <p class="text-slate-300 leading-relaxed">
+                        Engineered a smart card debit system serving <span class="text-white font-semibold">600,000+ daily users</span>. 
+                        Developed the full stack from C/C++ firmware on embedded readers to daily transaction reporting on SQL Server backends, 
+                        ensuring 99.9% uptime for public critical infrastructure.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 mono text-xs text-slate-400 md:justify-end">
+                    <span>C/C++</span>
+                    <span>Smart Cards</span>
+                    <span>RS-485</span>
+                    <span>SQL Server</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="group relative grid md:grid-cols-12 gap-8 items-center border-b border-slate-800 pb-20">
+            <div class="md:col-span-7 z-10">
+                <p class="mono text-emerald-400 text-sm mb-2">Distributed Systems</p>
+                <h4 class="text-3xl font-bold text-white mb-6 group-hover:text-emerald-400 transition italic">500-Site Security Network</h4>
+                <div class="bg-slate-900 p-6 rounded-lg border border-slate-800 shadow-xl mb-6">
+                    <p class="text-slate-300 leading-relaxed">
+                        Designed a distributed access control system with <span class="text-white font-semibold">1,500+ nodes</span>. 
+                        Integrated remote sites using a mix of Ethernet, TCP/IP, and dial-up communications to provide seamless central monitoring 
+                        for massive multi-building complexes.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 mono text-xs text-slate-400">
+                    <span>TCP/IP</span>
+                    <span>RFID</span>
+                    <span>C#/.NET</span>
+                    <span>Real-time Monitoring</span>
+                </div>
+            </div>
+            <div class="md:col-span-5 bg-slate-950 border border-slate-800 h-64 rounded-xl flex items-center justify-center overflow-hidden">
+                <i class="fas fa-network-wired text-6xl text-slate-800 group-hover:text-emerald-500/20 transition-all duration-500"></i>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-slate-900/30">      
+      <div class="max-w-5xl mx-auto px-6 text-center">
+          <h3 class="mono text-emerald-400 mb-16 uppercase tracking-widest flex items-center">
+              <span class="mr-4">03.</span> Technical Arsenal
+              <span class="ml-4 h-[1px] bg-slate-800 flex-grow"></span>
+          </h3>          
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+              <div class="p-6 border border-slate-800 rounded-lg hover:bg-slate-800/50 transition">
+                  <i class="fas fa-microchip text-emerald-500 mb-4 text-xl"></i>
+                  <h4 class="text-white font-bold mb-2">Firmware</h4>
+                  <p class="text-xs text-slate-500 mono leading-relaxed">C, C++, Assembler, M68K, 8051, PIC, RTOS Integration.</p>
+              </div>
+              <div class="p-6 border border-slate-800 rounded-lg hover:bg-slate-800/50 transition">
+                  <i class="fas fa-network-wired text-emerald-500 mb-4 text-xl"></i>
+                  <h4 class="text-white font-bold mb-2">Protocols</h4>
+                  <p class="text-xs text-slate-500 mono leading-relaxed">I2C, SPI, UART, RS-485, TCP/IP, USB-CDC.</p>
+              </div>
+              <div class="p-6 border border-slate-800 rounded-lg hover:bg-slate-800/50 transition">
+                  <i class="fas fa-code text-emerald-500 mb-4 text-xl"></i>
+                  <h4 class="text-white font-bold mb-2">Software</h4>
+                  <p class="text-xs text-slate-500 mono leading-relaxed">C#, .NET, Delphi, SQL Server, Visual Studio.</p>
+              </div>
+              <div class="p-6 border border-slate-800 rounded-lg hover:bg-slate-800/50 transition">
+                  <i class="fas fa-tools text-emerald-500 mb-4 text-xl"></i>
+                  <h4 class="text-white font-bold mb-2">Hardware</h4>
+                  <p class="text-xs text-slate-500 mono leading-relaxed">Oscilloscopes, Logic Analyzers, ROM Emulators, ICE.</p>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <footer class="py-24 border-t border-slate-800 text-center">
+      <div class="max-w-2xl mx-auto px-6">
+          <h3 class="mono text-emerald-400 mb-16 uppercase tracking-widest flex items-center">
+              <span class="mr-4">04.</span> What's Next?
+              <span class="ml-4 h-[1px] bg-slate-800 flex-grow"></span>
+          </h3>          
+          <h2 class="text-4xl font-bold text-white mb-6">Let's Build Something Robust.</h2>
+          <p class="text-slate-400 mb-10">
+              I am currently open to new opportunities in Embedded Systems Engineering or Project Leadership. If you have a legacy system that needs rescue or a new product that needs a solid foundation, let’s talk.
+          </p>
+          <a href="mailto:omar.navarroy@yahoo.com" class="inline-block border border-emerald-500 text-emerald-500 px-10 py-4 rounded-md font-bold hover:bg-emerald-500/10 transition-all duration-300 mono uppercase tracking-widest">
+              Send Message
+          </a>
+          <div class="mt-16 flex justify-center space-x-8 text-slate-500 text-xl">
+              <a href="#" class="hover:text-emerald-400 transition"><i class="fab fa-github"></i></a>
+              <a href="#" class="hover:text-emerald-400 transition"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p class="mt-12 text-slate-700 text-xs mono">Designed & Built by Omar Navarro © 2026</p>
+      </div>
+    </footer>
+</body>
+</html>
