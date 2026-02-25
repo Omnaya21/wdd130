@@ -1,0 +1,171 @@
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap');
+
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero container with background image */
+.container {
+  /*max-height: 100vh;*/
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;  
+
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* White, semi‑transparent card (overlapped) */
+.white-card {
+  display: grid;
+  grid-template-rows: 80px 3fr 80px;
+  max-width: 1280px;
+  min-height: 480px;
+  width: 100%;
+  /*background-image: url('../images/camping.jpg');*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(2px);  /* soft blur for extra readability */
+  border-radius: 5px;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem 1.8rem;
+  transition: transform 0.2s ease;
+  margin: 2vmax;
+}
+.river1 {
+  background-image: url('../images/river1.jpg');
+}
+.river2 {
+  background-image: url('../images/river2.jpg');
+}
+.river3 {
+  background-image: url('../images/river3.jpg');
+}
+
+.white-card:hover {
+  transform: scale(1.01);
+}
+
+/* Header area */
+.card-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.name {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2a1b3c;
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.profession {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8a6eb0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0.25rem;
+}
+
+/* Dialogue bubbles */
+.dialogue {
+  max-width: 400px;
+  background-color: #faf7ff;
+  background-color: rgba(0,0,0, 0.3);
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+  box-shadow: 0 4px 8px rgba(137, 92, 208, 0.08);
+}
+
+.dialogue p {
+  padding-bottom: 20px;
+}
+
+.dialogue p:first-child {
+  margin-top: 0;
+}
+
+.dialogue p:last-child {
+  margin-bottom: 0;
+}
+
+.speaker {
+  font-weight: 600;
+  color: #7a4fbb;
+  margin-right: 0.5rem;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  max-height: 80px;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #c7b0e6;
+  color: #4d3675;
+}
+
+.btn.info {
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+.btn.info:hover {
+  background: #f3ecff;
+  border-color: #b294dc;
+  color: #2a1b3c;
+}
+
+/* Optional: make buttons slightly 'clickable' */
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* For smaller screens */
+@media (max-width: 450px) {
+  .white-card {
+    padding: 1.5rem;
+  }
+  .name {
+    font-size: 1.8rem;
+  }
+  .actions {
+    flex-direction: column;
+  }
+}
