@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stunning cards · three · pure css</title>
+    <style>
+        /* ----- reset & base ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #1e2b3c 0%, #0e1a28 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* ----- cards grid container ----- */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2rem;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* ----- base card style (reused with different backgrounds) ----- */
+        .stunning-card {
+            position: relative;
+            flex: 1 1 300px;           /* flexible basis, at least 300px */
+            max-width: 420px;
+            min-width: 280px;
+            background-color: #2a3f54;  /* fallback */
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.6),
+                        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.35s ease;
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+
+        /* individual background images — each card unique */
+        .card-1 {
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+        .card-2 {
+            background-image: url('https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-position: center 40%;
+        }
+        .card-3 {
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-position: center 20%;
+        }
+
+        /* subtle scale on hover – feels alive */
+        .stunning-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 245, 200, 0.3) inset;
+        }
+
+        /* dark / colour overlay – makes text pop while background stays visible */
+        .stunning-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 40, 60, 0.3), rgba(0, 8, 18, 0.75));
+            backdrop-filter: blur(2px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* card content – sits above the overlay */
+        .card-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2.5rem 2rem 2.8rem 2rem;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+            backdrop-filter: brightness(0.98);
+            height: 100%;
+            min-height: 380px;           /* ensures consistent card height */
+        }
+
+        /* title – elegant, modern */
+        .card-title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            max-width: 90%;
+            text-transform: uppercase;
+            background: linear-gradient(130deg, #fff8f0, #ffeacb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* description – readable, contrasts with bg */
+        .card-description {
+            font-size: 1.12rem;
+            line-height: 1.6;
+            margin-bottom: 2.2rem;
+            opacity: 0.95;
+            font-weight: 400;
+            color: #f0f4fa;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+            max-width: 95%;
+            background: rgba(0, 5, 15, 0.25);
+            backdrop-filter: blur(1px);
+            padding: 0.8rem 1rem;
+            border-radius: 1.2rem;
+            border-left: 3px solid rgba(255, 220, 140, 0.8);
+        }
+
+        /* button – clear call to action */
+        .card-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(255, 240, 200, 0.7);
+            border-radius: 3rem;
+            padding: 0.9rem 2.4rem;
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #fffef7;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            border-image: none;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .card-button:hover {
+            background: rgba(255, 245, 210, 0.25);
+            border-color: #ffe9ae;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 30px -10px black, 0 0 0 2px rgba(255, 255, 255, 0.3) inset;
+            color: white;
+            letter-spacing: 0.8px;
+        }
+
+        .card-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 15px -5px black;
+            transition: 0.05s;
+        }
+
+        /* arrow after button */
+        .card-button::after {
+            content: " →";
+            font-size: 1.3rem;
+            line-height: 1;
+            opacity: 0.8;
+            transition: transform 0.2s;
+        }
+
+        .card-button:hover::after {
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* micro detail: subtle glow line at the bottom of each card */
+        .stunning-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fde3a7, #cbb28b, transparent);
+            z-index: 5;
+            border-radius: 100%;
+            filter: blur(1px);
+        }
+
+        /* make it fully responsive on small devices */
+        @media (max-width: 700px) {
+            .cards-grid {
+                gap: 1.8rem;
+            }
+            .card-title {
+                font-size: 2.4rem;
+            }
+            .card-content {
+                padding: 2rem 1.5rem 2.2rem 1.5rem;
+                min-height: 360px;
+            }
+            .card-description {
+                font-size: 1rem;
+                padding: 0.7rem 0.9rem;
+            }
+            .card-button {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* optional fallback if unsplash is blocked — solid background still decent */
+        .stunning-card {
+            background-color: #1d3b4c;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Three stunning cards, each with:
+        - title 
+        - text description
+        - button link (unique per card)
+        - distinct background image
+        pure HTML + CSS, no extra libraries
+    -->
+    <div class="cards-grid">
+        
+        <!-- CARD 1 : Alpine escape -->
+        <div class="stunning-card card-1" role="article" aria-label="mountain landscape card">
+            <div class="card-content">
+                <h2 class="card-title">Alpine<br>escape</h2>
+                <p class="card-description">
+                    Breathtaking valleys, silent peaks, and skies full of stars. Let the mountains reset your spirit.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Mountain" 
+                   class="card-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    Explore peaks
+                </a>
+            </div>
+        </div>
+        
+        <!-- CARD 2 : misty forest / mysterious woods -->
+        <div class="stunning-card card-2" role="article" aria-label="forest waterfall card">
+            <div class="card-content">
+                <h2 class="card-title">Wild<br>woods</h2>
+                <p class="card-description">
+                    Ancient trees, hidden waterfalls, and the fresh scent of pine. Reconnect with nature’s heartbeat.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Forest" 
+                   class="card-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    Wander in
+                </a>
+            </div>
+        </div>
+        
+        <!-- CARD 3 : foggy dawn / mystical atmosphere -->
+        <div class="stunning-card card-3" role="article" aria-label="misty lake card">
+            <div class="card-content">
+                <h2 class="card-title">Misty<br>dawn</h2>
+                <p class="card-description">
+                    Soft light over still waters, mist rising like dreams. A moment of pure stillness and wonder.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Lake" 
+                   class="card-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    Discover calm
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- subtle credit note – stays discreet -->
+    <div style="position: fixed; bottom: 12px; right: 16px; color: rgba(255,255,245,0.2); font-size: 0.7rem; backdrop-filter: blur(2px); padding: 4px 10px; border-radius: 40px; background: rgba(0,0,0,0.2);">backgrounds: Unsplash · pure css · 3 cards</div>
+</body>
+</html>
