@@ -132,12 +132,12 @@ nav a:hover {
   display: grid;
   justify-content: center;
 
-  grid-template-columns: repeat(6, 15%);
+  grid-template-columns: repeat(8, 11.25%);
   grid-template-rows: 3em 1.5em 1.5em 3em;
-  grid-template-areas: ". . home home . ."
-    ". . . top . ."
-    ". left left right right ."
-    "page2 page2 . . page3 page3";
+  grid-template-areas: ". . . home home . . ."
+    ". . . . top top . ."
+    ". left left left right right right ."
+    "page2 page2 . page3 page3 . page4 page4";
 }
 .sitemap > div {
 
@@ -159,6 +159,11 @@ nav a:hover {
   background-color: #ccc;
   line-height: 3em;
 }
+.sm-page4 {
+  grid-area: page4;
+  background-color: #ccc;
+  line-height: 3em;
+}
 
 .top {
   grid-area: top;
@@ -173,6 +178,7 @@ nav a:hover {
 
 .right {
   grid-area: right;
+  border-left: 1px solid;
   border-top: 1px solid;
   border-right: 1px solid;
 }
