@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minimal cards · pure css</title>
+    <style>
+        /* ----- minimal reset & base ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f2f4f7;  /* soft grey – minimal backdrop */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ----- grid – airy, balanced ----- */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2rem;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* ----- minimal card structure ----- */
+        .minimal-card {
+            position: relative;
+            flex: 1 1 280px;
+            max-width: 380px;
+            min-width: 260px;
+            background-color: #ffffff;      /* pure white fallback */
+            border-radius: 1.75rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* subtle border instead of heavy shadows */
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        /* individual background images — muted, calm */
+        .card-1 {
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+        .card-2 {
+            background-image: url('https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-position: center 30%;
+        }
+        .card-3 {
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-position: center 25%;
+        }
+
+        /* gentle hover – barely there */
+        .minimal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 40px -18px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        /* light overlay – barely tinted, keeps readability minimal */
+        .minimal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);   /* very soft white veil */
+            backdrop-filter: blur(1.5px) brightness(1.02);  · /* almost imperceptible blur */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* card content – sits above veil, clean typography */
+        .card-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2.8rem 2rem 2.8rem 2rem;
+            color: #1a1f26;              /* dark grey, not pure black */
+            text-shadow: none;            /* no text shadow – minimal */
+            height: 100%;
+            min-height: 360px;
+            background: transparent;       /* complete transparency over image */
+        }
+
+        /* title – minimal, thin, spaced */
+        .card-title {
+            font-size: 2.5rem;
+            font-weight: 350;              /* light weight */
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+            text-transform: none;           /* keep case natural */
+            color: #151515;                 /* dark charcoal */
+            background: none;                /* no gradient */
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #1e1e1e;
+            text-shadow: none;
+            font-weight: 300;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        /* description – ultra light, airy */
+        .card-description {
+            font-size: 1rem;
+            line-height: 1.65;
+            margin-bottom: 2.5rem;
+            font-weight: 320;
+            color: #2b2b2b;
+            max-width: 100%;
+            background: rgba(255, 255, 255, 0.3);  /* only slight white backdrop for legibility */
+            backdrop-filter: blur(2px);
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.5rem;
+            border: none;                          /* no border accent – minimal */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+            font-weight: 340;
+        }
+
+        /* button – minimal outline, no arrows, thin */
+        .card-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            border-radius: 2.5rem;
+            padding: 0.7rem 2.2rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #1f1f1f;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            box-shadow: none;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            font-weight: 380;
+            backdrop-filter: blur(4px);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .card-button:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .card-button:active {
+            transform: translateY(0);
+            box-shadow: none;
+            transition: 0.05s;
+        }
+
+        /* no ::after arrow – minimal means no decorative elements */
+
+        /* completely remove the bottom glow line */
+        .minimal-card::after {
+            display: none;
+        }
+
+        /* responsive touch */
+        @media (max-width: 700px) {
+            .card-title {
+                font-size: 2.2rem;
+            }
+            .card-content {
+                padding: 2rem 1.8rem 2rem 1.8rem;
+                min-height: 340px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-title {
+                font-size: 2rem;
+            }
+            .card-description {
+                font-size: 0.95rem;
+                padding: 0.6rem 1rem;
+            }
+            .card-button {
+                padding: 0.6rem 1.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* fallback */
+        .minimal-card {
+            background-color: #eaeef2;
+        }
+
+        /* optional micro credit – even lighter */
+        .credit {
+            position: fixed;
+            bottom: 10px;
+            right: 16px;
+            color: rgba(60, 60, 65, 0.25);
+            font-size: 0.65rem;
+            backdrop-filter: blur(2px);
+            padding: 4px 10px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- three minimal cards – clean, airy, nothing extra -->
+    <div class="cards-grid">
+        
+        <!-- CARD 1 : mountain -->
+        <div class="minimal-card card-1" role="article" aria-label="mountain landscape">
+            <div class="card-content">
+                <h2 class="card-title">Main Fork of the Salmon River, Idaho</h2>
+                <p class="card-description">
+                    estled deep in the Frank Church Wilderness of No Return 
+          winds the Salmon river. The Salmon was given the nickname long ago as the River of No Return by the 
+          people living near it because of the number of folks that came to visit and fell so in love with the 
+          rugged beauty of the river that they never left.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Mountain" 
+                   class="card-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    view
+                </a>
+            </div>
+        </div>
+        
+        <!-- CARD 2 : forest -->
+        <div class="minimal-card card-2" role="article" aria-label="forest landscape">
+            <div class="card-content">
+                <h2 class="card-title">Desolation and Gray Canyon, Utah</h2>
+                <p class="card-description">
+                    Winding through canyons in central Utah, in some of the 
+          most desolate land anywhere, the Green river flows towards the mighty Colorado river and the sea. 
+          High grey stone cliffs, beautiful desert scenery, and great rapids have made this run famous. 
+          This 84-mile trip runs from from Sand Wash to Swaseys Rapid (just outside Green River Utah) and 
+          boasts outstanding scenery, interesting geologic formations, evidence of prehistoric and historic 
+          human activity, and great whitewater opportunities.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Forest" 
+                   class="card-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    explore
+                </a>
+            </div>
+        </div>
+        
+        <!-- CARD 3 : mist -->
+        <div class="minimal-card card-3" role="article" aria-label="misty landscape">
+            <div class="card-content">
+                <h2 class="card-title">mist</h2>
+                <p class="card-description">
+                    soft light · quiet water · dawn
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Lake" 
+                   class="card-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    pause
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- subtle credit – as minimal as the cards -->
+    <div class="credit">minimal · pure css</div>
+</body>
+</html>
