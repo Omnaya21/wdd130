@@ -46,7 +46,7 @@ p {
 }
 .footbar {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: space-around;
   background-color: #425b8a;
   width: 100%;
@@ -68,6 +68,12 @@ h3 {
 }
 h4 {  
   font-size: 10px;
+}
+.foot2 {
+  border-left: 1px solid #a299a2; /* Color and thickness */
+  border-right: 1px solid #a299a2; /* Color and thickness */
+  height: auto; /* Height of the vertical line */
+
 }
 .vertical {
   border-left: 1px solid #a299a2; /* Color and thickness */
