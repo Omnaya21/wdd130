@@ -1,0 +1,288 @@
+<!--
+import { useState, useEffect } from "react";
+import { base44 } from "@/api/base44Client";
+import { Download, Upload, Mail, Phone, MapPin, Globe } from "lucide-react";
+
+/* ─────────────────────────────────────────
+   Edit this data to match your real info
+───────────────────────────────────────── */
+const CONTACT = [
+  { icon: Mail,    text: "your@email.com" },
+  { icon: Phone,   text: "+1 (555) 000-0000" },
+  { icon: MapPin,  text: "New York, NY" },
+  { icon: Globe,   text: "yourwebsite.com" },
+];
+
+const EXPERIENCE = [
+  {
+    title: "Senior Product Designer",
+    company: "Studio Name",
+    period: "2021 — Present",
+    location: "New York, NY",
+    description:
+      "Led design strategy for enterprise SaaS products serving 50k+ users. Established design systems, conducted user research, and drove a 35% improvement in user engagement metrics.",
+    tags: ["Design Systems", "User Research", "Figma", "Stakeholder Alignment"],
+  },
+  {
+    title: "UX / UI Designer",
+    company: "Digital Agency",
+    period: "2018 — 2021",
+    location: "New York, NY",
+    description:
+      "Designed digital products for clients across fintech, healthcare, and e-commerce verticals. Delivered 20+ successful product launches with measurable impact.",
+    tags: ["Product Design", "Brand Identity", "Motion Design"],
+  },
+  {
+    title: "Visual Designer",
+    company: "Publishing House",
+    period: "2015 — 2018",
+    location: "Brooklyn, NY",
+    description:
+      "Created editorial layouts, brand systems, and digital experiences for a leading independent publishing house.",
+    tags: ["Editorial Design", "Typography", "Print & Digital"],
+  },
+];
+
+const EDUCATION = [
+  {
+    degree: "M.F.A. in Graphic Design",
+    school: "School of Visual Arts",
+    year: "2015",
+    note: 'Thesis: "Typography as Cultural Memory"',
+  },
+  {
+    degree: "B.A. in Fine Arts",
+    school: "University Name",
+    year: "2013",
+    note: "Minor in Art History · Dean's List",
+  },
+];
+
+const SKILLS = [
+  { category: "Design",    items: ["Figma", "Adobe Creative Suite", "Sketch", "Principle", "Framer"] },
+  { category: "Research",  items: ["User Interviews", "Usability Testing", "A/B Testing", "Journey Mapping"] },
+  { category: "Strategy",  items: ["Brand Strategy", "Design Systems", "Information Architecture", "Design Sprints"] },
+  { category: "Technical", items: ["HTML / CSS", "React Basics", "Design Tokens", "WCAG Accessibility"] },
+];
+/* ───────────────────────────────────────── */
+
+const Tag = ({ children }) => (
+  <span
+    style={{
+      fontFamily: '"IBM Plex Mono", monospace',
+      fontSize: "0.62rem",
+      letterSpacing: "0.08em",
+      textTransform: "uppercase",
+      padding: "0.25rem 0.625rem",
+      border: "1px solid var(--border)",
+      borderRadius: "4px",
+      color: "var(--muted-foreground)",
+    }}
+  >
+    {children}
+  </span>
+);
+
+const SectionLabel = ({ text }) => (
+  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2.5rem" }}>
+    <span style={{ flex: 1, height: "1px", backgroundColor: "var(--border)" }} />
+    <span className="small-caps">{text}</span>
+    <span style={{ flex: 1, height: "1px", backgroundColor: "var(--border)" }} />
+  </div>
+);
+
+export default function Resume() {
+  const [settings, setSettings]   = useState(null);
+  const [isAdmin, setIsAdmin]     = useState(false);
+  const [uploading, setUploading] = useState(false);
+
+  useEffect(() => { loadSettings(); checkAdmin(); }, []);
+
+  const loadSettings = async () => {
+    const data = await base44.entities.SiteSettings.list();
+    if (data.length > 0) setSettings(data[0]);
+  };
+
+  const checkAdmin = async () => {
+    try {
+      const user = await base44.auth.me();
+      setIsAdmin(user?.role === "admin");
+    } catch {}
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setUploading(true);
+    const { file_url } = await base44.integrations.Core.UploadFile({ file });
+    const payload = { key: "main", resume_file_url: file_url, resume_file_name: file.name };
+    if (settings?.id) {
+      await base44.entities.SiteSettings.update(settings.id, payload);
+    } else {
+      await base44.entities.SiteSettings.create(payload);
+    }
+    await loadSettings();
+    setUploading(false);
+  };
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div style="max-width: '64rem'; margin: 0 auto; padding: 5rem 2rem 7rem ">
+
+      <!-- {/* ── Header ── */} -->
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6" style=" margin-bottom: 3rem ">
+        <div>
+          <p className="small-caps" style=" margin-bottom: 0.75rem ">Curriculum Vitæ</p>
+          <h1
+            style="
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: clamp(2.5rem, 6vw, 3.75rem);
+              font-weight: 400;
+              letter-spacing: -0.025em;
+              color: var(--foreground);
+              margin-bottom: 1.25rem;
+            "
+          >
+            Omar Navarro
+          </h1>
+          <div className="flex flex-wrap gap-4" style=" color: var(--muted-foreground); font-size: 0.875rem">
+            <span key="text" style=" display: flex; align-items: center; gap: 0.4rem">
+              <Icon size=13 />
+              omar.navarroy@yahoo.com
+            </span>
+            <span key="text" style=" display: flex; align-items: center; gap: 0.4rem">
+              <Icon size=13 />
+              +1 (619) 352-7021
+            </span>
+            <span key="text" style=" display: flex; align-items: center; gap: 0.4rem">
+              <Icon size=13 />
+              National City, CA
+            </span>
+            <span key="text" style=" display: flex; align-items: center; gap: 0.4rem">
+              <Icon size=13 />
+              www.ingyso.com
+            </span>
+          </div>
+        </div>
+
+        <!-- {/* File actions */} -->
+        <div style=" display: flex; gap: 0.75rem; flex-wrap: wrap ">
+            <a
+              href="#"
+              download={settings.resume_file_name || "resume"}
+              className="btn-primary"
+            >
+              <Download size=15 /> Download Résumé
+            </a>
+
+        </div>
+      </div>
+
+      <hr className="rule" style=" margin-bottom: 4rem" />
+
+      <!-- {/* ── Experience ── */} -->
+      <section style=" margin-bottom: 4.5rem" >
+        <SectionLabel text="Experience" />
+        <div style=" display: flex; flex-direction: column; gap: 3rem ">
+          {EXPERIENCE.map((exp, i) => (
+            <div key={i} className="grid md:grid-cols-[10rem_1fr] gap-4 md:gap-10">
+              {/* Meta */}
+              <div style=" padding-top: 0.2rem" >
+                <p style=" font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 0.3rem">
+                  {exp.period}
+                </p>
+                <p style=" font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground); opacity: 0.7 ">
+                  {exp.location}
+                </p>
+              </div>
+              {/* Content */}
+              <div>
+                <h3 style=" font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; font-weight: 600; color: var(--foreground); margin-bottom: 0.3rem ">
+                  {exp.title}
+                </h3>
+                <p className="small-caps" style=" margin-bottom: 0.875rem; font-size: 0.62rem ">
+                  {exp.company}
+                </p>
+                <p style=" color: var(--muted-foreground); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem ">
+                  {exp.description}
+                </p>
+                <div style=" display: flex; flex-wrap: wrap; gap: 0.5rem ">
+                  {exp.tags.map(t => <Tag key={t}>{t}</Tag>)}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr className="rule" style=" margin-bottom: 4.5rem"  />
+
+      {/* ── Education ── */}
+      <section style=" margin-bottom: 4.5rem" >
+        <SectionLabel text="Education" />
+        <div style=" display: flex; flex-direction: column; gap: 2.25rem" >
+          {EDUCATION.map((edu, i) => (
+            <div key={i} className="grid md:grid-cols-[10rem_1fr] gap-4 md:gap-10">
+              <p style=" font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); padding-top: 0.2rem ">
+                {edu.year}
+              </p>
+              <div>
+                <h3 style=" font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 600; color: var(--foreground); margin-bottom: 0.3rem ">
+                  {edu.degree}
+                </h3>
+                <p className="small-caps" style=" font-size: 0.62rem; margin-bottom: 0.5rem ">
+                  {edu.school}
+                </p>
+                <p style=" color: var(--muted-foreground); font-size: 0.9rem; font-style: italic; font-family: 'Playfair Display', Georgia, serif ">
+                  {edu.note}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr className="rule" style=" margin-bottom: 4.5rem" />
+
+      {/* ── Skills ── */}
+      <section>
+        <SectionLabel text="Skills & Expertise" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {SKILLS.map(({ category, items }) => (
+            <div key={category}>
+              <p className="small-caps" style=" margin-bottom: 1rem">{category}</p>
+              <div style=" display: flex; flex-wrap: wrap; gap: 0.5rem ">
+                {items.map(skill => (
+                  <span
+                    key={skill}
+                    style="
+                      background-color: var(--card);
+                      border: 1px solid var(--border);
+                      border-radius: 4px;
+                      padding: 0.35rem 0.75rem;
+                      font-size: 0.875rem;
+                      color: var(--foreground);
+                    "
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  );
+}  
+</body>
+</html>
+

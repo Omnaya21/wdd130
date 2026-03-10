@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Omar Navarro</title>
+  <meta name="description" content="Professional resume of Omar Navarro — Embedded Software Engineer with 15+ years of experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <style>
+    /* ─── Download Bar ─── */
+    .download-bar {
+      background: var(--md-primary); color: var(--md-on-primary);
+      padding: var(--sp-5) 0;
+    }
+    .download-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: var(--sp-4);
+    }
+    .download-bar-text { font-weight: 500; font-size: 1rem; }
+    .download-bar-text span { font-size: .875rem; opacity: .8; display: block; font-weight: 400; }
+    .download-actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: var(--sp-2);
+      background: rgba(255,255,255,.15); color: #fff; border: 1.5px solid rgba(255,255,255,.35);
+      border-radius: var(--radius-full); padding: 0 var(--sp-5); height: 44px;
+      font-size: .875rem; font-weight: 500; text-decoration: none;
+      transition: var(--transition-fast); white-space: nowrap;
+    }
+    .btn-download:hover { background: rgba(255,255,255,.28); }
+    .btn-download:active { transform: scale(.95); }
+
+    /* ─── Resume Layout ─── */
+    .resume-layout { display: grid; grid-template-columns: 280px 1fr; gap: var(--sp-8); align-items: start; padding: var(--sp-16) 0 var(--sp-24); }
+
+    /* ─── Sidebar ─── */
+    .resume-sidebar { display: flex; flex-direction: column; gap: var(--sp-5); }
+    .sidebar-card { background: var(--md-surface-container); border-radius: var(--radius-lg); padding: var(--sp-5); box-shadow: var(--shadow-sm); }
+    .sidebar-section-title { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--md-primary); margin-bottom: var(--sp-3); display: flex; align-items: center; gap: var(--sp-2); }
+    .sidebar-section-title .material-icons-round { font-size: 1rem; }
+
+    .contact-row { display: flex; align-items: center; gap: var(--sp-2); font-size: .875rem; color: var(--md-on-surface-variant); margin-bottom: var(--sp-3); }
+    .contact-row:last-child { margin-bottom: 0; }
+    .contact-row .material-icons-round { font-size: 1rem; color: var(--md-primary); flex-shrink: 0; }
+    .contact-row a { color: inherit; text-decoration: none; word-break: break-all; }
+    .contact-row a:hover { color: var(--md-primary); }
+
+    .lang-item { display: flex; align-items: center; justify-content: space-between; font-size: .875rem; margin-bottom: var(--sp-2); }
+    .lang-bar { width: 100%; height: 6px; background: var(--md-surface-variant); border-radius: var(--radius-full); overflow: hidden; margin-top: 4px; }
+    .lang-bar-fill { height: 100%; background: var(--md-primary); border-radius: var(--radius-full); }
+
+    .edu-item { margin-bottom: var(--sp-4); }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-degree { font-size: .9375rem; font-weight: 500; color: var(--md-on-surface); line-height: 1.3; }
+    .edu-institution { font-size: .8125rem; color: var(--md-primary); font-weight: 500; margin: 2px 0; }
+    .edu-year { font-size: .75rem; color: var(--md-on-surface-variant); }
+
+    /* ─── Main Content ─── */
+    .resume-main { display: flex; flex-direction: column; gap: var(--sp-8); }
+    .resume-section {}
+    .resume-section-title {
+      font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--md-on-surface-variant); margin-bottom: var(--sp-5);
+      display: flex; align-items: center; gap: var(--sp-2); padding-bottom: var(--sp-2);
+      border-bottom: 1px solid var(--md-outline-variant);
+    }
+    .resume-section-title .material-icons-round { font-size: 1.1rem; color: var(--md-primary); }
+
+    .summary-card { background: var(--md-primary-container); border-radius: var(--radius-lg); padding: var(--sp-5) var(--sp-6); }
+    .summary-card p { color: var(--md-on-primary-container); line-height: 1.65; font-size: .9375rem; }
+
+    .skills-ref { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+    .skill-ref-item { background: var(--md-surface-container); border-radius: var(--radius-md); padding: var(--sp-3) var(--sp-4); }
+    .skill-ref-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--md-on-surface-variant); margin-bottom: var(--sp-2); }
+    .skill-ref-chips { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
+
+    .project-ref { display: flex; flex-direction: column; gap: var(--sp-4); }
+    .project-ref-item { background: var(--md-surface-container); border-radius: var(--radius-lg); padding: var(--sp-4) var(--sp-5); box-shadow: var(--shadow-sm); }
+    .project-ref-title { font-size: 1rem; font-weight: 500; color: var(--md-on-surface); margin-bottom: var(--sp-1); }
+    .project-ref-desc { font-size: .875rem; color: var(--md-on-surface-variant); line-height: 1.55; }
+
+    @media (max-width: 800px) {
+      .resume-layout { grid-template-columns: 1fr; }
+      .skills-ref { grid-template-columns: 1fr; }
+      .download-bar-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark">ON</span> Omar Navarro
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="assets/omar-navarro-resume.pdf" download class="btn btn-filled btn-sm">
+            <span class="material-icons-round" style="font-size:16px">download</span> Download PDF
+          </a>
+        </div>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="resume.html">Resume</a>
+    </div>
+  </nav>
+
+  <!-- ── DOWNLOAD BAR ── -->
+  <div class="download-bar">
+    <div class="container">
+      <div class="download-bar-inner">
+        <div class="download-bar-text">
+          Omar Navarro — Embedded Software Engineer
+          <span>National City, CA · omar.navarroy@yahoo.com · (619) 352-7021</span>
+        </div>
+        <div class="download-actions">
+          <a href="assets/omar-navarro-resume.pdf" download class="btn-download">
+            <span class="material-icons-round" style="font-size:18px">picture_as_pdf</span> Download PDF
+          </a>
+          <a href="assets/omar-navarro-resume.docx" download class="btn-download">
+            <span class="material-icons-round" style="font-size:18px">description</span> Download Word
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESUME BODY ── -->
+  <div class="container">
+    <div class="resume-layout">
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="resume-sidebar reveal">
+
+        <!-- Contact -->
+        <div class="sidebar-card">
+          <div class="sidebar-section-title">
+            <span class="material-icons-round">contact_page</span> Contact
+          </div>
+          <div class="contact-row"><span class="material-icons-round">email</span><a href="mailto:omar.navarroy@yahoo.com">omar.navarroy@yahoo.com</a></div>
+          <div class="contact-row"><span class="material-icons-round">phone</span><a href="tel:+16193527021">(619) 352-7021</a></div>
+          <div class="contact-row"><span class="material-icons-round">location_on</span>National City, CA 91950</div>
+        </div>
+
+        <!-- Education -->
+        <div class="sidebar-card">
+          <div class="sidebar-section-title">
+            <span class="material-icons-round">school</span> Education
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">BS Software Engineering</div>
+            <div class="edu-institution">Brigham Young University – Idaho</div>
+            <div class="edu-year">In Progress · Expected 2027</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">AS Programming</div>
+            <div class="edu-institution">Brigham Young University – Idaho</div>
+            <div class="edu-year">Graduated 2024</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">BS Computer Engineering</div>
+            <div class="edu-institution">University of Baja California</div>
+            <div class="edu-year">Graduated with Honors · 1997</div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="sidebar-card">
+          <div class="sidebar-section-title">
+            <span class="material-icons-round">translate</span> Languages
+          </div>
+          <div class="lang-item">
+            <span style="font-size:.875rem;font-weight:500">English</span>
+            <span class="chip" style="font-size:.7rem;padding:2px 8px">Fluent</span>
+          </div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:95%"></div></div>
+          <div style="height:var(--sp-3)"></div>
+          <div class="lang-item">
+            <span style="font-size:.875rem;font-weight:500">Spanish</span>
+            <span class="chip" style="font-size:.7rem;padding:2px 8px">Native</span>
+          </div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+        </div>
+
+        <!-- Methodologies -->
+        <div class="sidebar-card">
+          <div class="sidebar-section-title">
+            <span class="material-icons-round">settings_suggest</span> Methodologies
+          </div>
+          <div class="chip-group">
+            <span class="chip">Agile</span><span class="chip">Scrum</span><span class="chip">Waterfall</span>
+          </div>
+        </div>
+
+        <!-- Operating Systems -->
+        <div class="sidebar-card">
+          <div class="sidebar-section-title">
+            <span class="material-icons-round">desktop_windows</span> Operating Systems
+          </div>
+          <div class="chip-group">
+            <span class="chip">Windows XP–11</span><span class="chip">Linux</span>
+            <span class="chip">Mac OS</span><span class="chip">Embedded OS</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── MAIN CONTENT ── -->
+      <main class="resume-main" role="main">
+
+        <!-- Summary -->
+        <section class="resume-section reveal">
+          <h2 class="resume-section-title">
+            <span class="material-icons-round">person</span> Professional Summary
+          </h2>
+          <div class="summary-card">
+            <p>Results-driven Embedded Software Engineer with <strong>15+ years</strong> of experience in full-cycle firmware and embedded system development. Proven expertise in C, C++, microcontrollers, and real-time systems. Skilled in designing high-performance, scalable solutions for industrial, transportation, and security applications. Passionate about optimizing real-time applications and integrating IoT, biometric authentication, and security solutions.</p>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="resume-section reveal">
+          <h2 class="resume-section-title">
+            <span class="material-icons-round">work</span> Work Experience
+          </h2>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot"><span class="material-icons-round" style="font-size:1.1rem">work</span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">Technical Consultant</div>
+                    <div class="timeline-company">Independent · Access &amp; Time Attendance Systems</div>
+                  </div>
+                  <span class="timeline-date">2011 – Present</span>
+                </div>
+                <ul class="timeline-bullets">
+                  <li>Designed and implemented a centralized Time &amp; Attendance system for a construction company across multiple locations.</li>
+                  <li>Integrated RFID cards &amp; fingerprint biometric readers to collect employee attendance data.</li>
+                  <li>Developed real-time synchronization between SQL Server &amp; Oracle databases to streamline payroll processing.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"><span class="material-icons-round" style="font-size:1.1rem">precision_manufacturing</span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">Embedded Software Engineer</div>
+                    <div class="timeline-company">InteLogik</div>
+                  </div>
+                  <span class="timeline-date">2002 – 2010</span>
+                </div>
+                <ul class="timeline-bullets">
+                  <li>Led a team of developers creating custom embedded systems for Telnor Telephone Company &amp; Mexican government projects.</li>
+                  <li><strong>Smart Ticketing System</strong> — Designed an automated bus station Smart Card ticketing system across 47+ stations serving 600,000+ daily users; improved transaction efficiency by 30%.</li>
+                  <li><strong>Security Access Control</strong> — Developed custom devices managing 500+ sites &amp; 1,500+ doors via TCP/IP &amp; modem communication.</li>
+                  <li><strong>Identity Verification System</strong> — Built a Mifare + Windows CE authentication system with wireless SQL Server connectivity for 250+ federal parking sites.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"><span class="material-icons-round" style="font-size:1.1rem">security</span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">Software Developer</div>
+                    <div class="timeline-company">ASM Security</div>
+                  </div>
+                  <span class="timeline-date">2001 – 2002</span>
+                </div>
+                <ul class="timeline-bullets">
+                  <li>Developed an automated invoicing system for 3,000+ customers, reducing invoice processing time by 60%.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"><span class="material-icons-round" style="font-size:1.1rem">grass</span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">Embedded Software Engineer</div>
+                    <div class="timeline-company">RainBird Mexico</div>
+                  </div>
+                  <span class="timeline-date">1997 – 2001</span>
+                </div>
+                <ul class="timeline-bullets">
+                  <li>Led engineering for high-volume irrigation control devices (100,000+ units annually).</li>
+                  <li>Developed a diagnostic system for electromechanical equipment, reducing product returns by <strong>80%</strong>.</li>
+                  <li>Re-designed and optimized firmware — reduced software bugs by 60%, improved efficiency by 20%.</li>
+                  <li>Led in-house development of 3 new products, saving the company <strong>$500,000+</strong> in development costs.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="resume-section reveal">
+          <h2 class="resume-section-title">
+            <span class="material-icons-round">build</span> Technical Skills
+          </h2>
+          <div class="skills-ref">
+            <div class="skill-ref-item">
+              <div class="skill-ref-label">Programming Languages</div>
+              <div class="skill-ref-chips">
+                <span class="chip">C</span><span class="chip">C++</span><span class="chip">C#</span>
+                <span class="chip">Pascal</span><span class="chip">Assembly</span>
+              </div>
+            </div>
+            <div class="skill-ref-item">
+              <div class="skill-ref-label">Software &amp; Tools</div>
+              <div class="skill-ref-chips">
+                <span class="chip">Visual Studio</span><span class="chip">Git</span>
+                <span class="chip">Delphi</span><span class="chip">AutoCAD</span>
+              </div>
+            </div>
+            <div class="skill-ref-item">
+              <div class="skill-ref-label">Hardware</div>
+              <div class="skill-ref-chips">
+                <span class="chip">RFID</span><span class="chip">Mifare</span>
+                <span class="chip">Fingerprint</span><span class="chip">Oscilloscopes</span>
+              </div>
+            </div>
+            <div class="skill-ref-item">
+              <div class="skill-ref-label">Protocols &amp; Databases</div>
+              <div class="skill-ref-chips">
+                <span class="chip">TCP/IP</span><span class="chip">RS-232</span>
+                <span class="chip">I2C</span><span class="chip">SQL Server</span><span class="chip">Oracle</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects & Accomplishments -->
+        <section class="resume-section reveal">
+          <h2 class="resume-section-title">
+            <span class="material-icons-round">emoji_events</span> Projects &amp; Accomplishments
+          </h2>
+          <div class="project-ref">
+            <div class="project-ref-item">
+              <h3 class="project-ref-title">Automated Movie Rental System</h3>
+              <p class="project-ref-desc">Self-service movie rental system using fingerprint authentication. Reduced labor costs by 60%, handled 5,000+ movies, and served 500+ daily customers.</p>
+            </div>
+            <div class="project-ref-item">
+              <h3 class="project-ref-title">Access Control for Secure Facilities</h3>
+              <p class="project-ref-desc">Enterprise-wide access control system using biometric and RFID authentication to enhance security across 500+ sites.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Relevant Coursework -->
+        <section class="resume-section reveal">
+          <h2 class="resume-section-title">
+            <span class="material-icons-round">menu_book</span> Relevant Coursework
+          </h2>
+          <div class="chip-group">
+            <span class="chip">Embedded Systems</span>
+            <span class="chip">I2C Communication</span>
+            <span class="chip">Software Quality Assurance</span>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer" style="margin-top:0">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo" style="font-size:1.25rem">
+          <span class="logo-mark">ON</span> Omar Navarro
+        </a>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="social-links">
+          <a href="mailto:omar.navarroy@yahoo.com" class="social-link" aria-label="Email">
+            <span class="material-icons-round">email</span>
+          </a>
+          <a href="tel:+16193527021" class="social-link" aria-label="Phone">
+            <span class="material-icons-round">phone</span>
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Omar Navarro. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
