@@ -5,7 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omar Navarro — Embedded Software Engineer</title>
   <meta name="description" content="Personal portfolio and digital resume of Omar Navarro, an Embedded Software Engineer with 15+ years of experience in firmware, embedded systems, and security solutions." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .footer {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .footer-logo span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icons a {
+      color: #ffffff;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #007bff;
+    }
+
+    .copyright {
+      font-size: 14px;
+      color: #888888;
+    }
+  </style>
 
 </head>
 <body>
@@ -69,12 +124,29 @@
   </main>
 
   <!-- ── FOOTER ── -->
+   <footer class="footer">
+    <div class="footer-logo">
+      <img src="./images/logot.png" alt="" style="max-width: 30px; max-height: 30px;">
+      <span>Omar Navarro</span>
+    </div>
+
+    <div class="social-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+    </div>
+
+    <div class="copyright">
+      &copy; 2026 Omar Navarro. All rights reserved.
+    </div>
+  </footer>
+  <!--
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <a href="index.html" class="nav-logo" style="font-size:1.25rem">
           <img src="./images/logo.png" alt="personal logo" style="max-width: 100px;">
-          <!--<span class="logo-mark">ON</span> -->
           Omar Navarro
         </a>
         <ul class="footer-nav">
@@ -96,6 +168,7 @@
       </div>
     </div>
   </footer>
+  -->
 
 </body>
 </html>
