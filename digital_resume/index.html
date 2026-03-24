@@ -5,129 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omar Navarro — Embedded Software Engineer</title>
   <meta name="description" content="Personal portfolio and digital resume of Omar Navarro, an Embedded Software Engineer with 15+ years of experience in firmware, embedded systems, and security solutions." />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .footer {
-      background-color: #1a1a1a;
-      color: #ffffff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-logo img {
-      height: 40px;
-      width: auto;
-    }
-
-    .footer-logo span {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 16px;
-    }
-
-    .social-icons a {
-      color: #ffffff;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #007bff;
-    }
-
-    .copyright {
-      font-size: 14px;
-      color: #888888;
-    }
-  </style>
-
+  <!--
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/global.css">
+  <link rel="stylesheet" href="./styles/components.css">
+-->
+  <link rel="stylesheet" href="./styles/resumestyle.css">
+ 
 </head>
 <body>
-  <header>  
-      <!-- ── NAVIGATION ── -->
-      <nav class="nav" >
+  <header>
+      <div class="logo">
         <a href="index.html" class="nav-logo">
-          <img src="./images/logo.png" alt="personal logo" style="max-height: 100px;">
-          Omar Navarro
-        </a>
+            <img src="./images/logot.png" alt="personal logo" class="logo-mark" style="max-height: 60px;">
+            Omar Navarro
+          </a>
+      </div>
+      <!-- ── NAVIGATION ── -->
+      <nav class="nav" id="nav">                         
+
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="nav-cta">
-          <a href="resume.html" >
-            View Resume
+                  
+      </nav>
+      <div class="nav-cta">
+          <a href="resume.html" class="btn btn-filled btn-sm">
+            <span class="material-icons-round" style="font-size:16px">description</span>
+            Download
           </a>
         </div>
-      </nav>
   </header>
 
   <main>
       <!-- ── HERO ── -->
       <section class="hero-section">
-        <div class="container hero-container">
-          <div class="hero-content">
+        <div class="hero-avatar">
+            <img src="./images/profile_e.png" alt="Omar Navarro — Embedded Software Engineer"/>
+        </div>
+       
+        <div class="hero-content">
 
-            <h1 >
-              Hi, I'm Omar Navarro
-            </h1>
-            <p>Embedded Software Engineer</p>
-            <p>
-              <strong>15+ years</strong> building firmware and embedded systems for transportation, biometric security, and IoT — from microcontrollers to 600K-user transit networks.
-            </p>
-            <div>
-              <a href="portfolio.html" >
-                View Portfolio
-                <span class="material-icons-round" style="font-size:20px">arrow_forward</span>
-              </a>
-              <a href="resume.html" >View Resume</a>
-            </div>
-            <div>
-              <a href="mailto:omar.navarroy@yahoo.com">
-                omar.navarroy@yahoo.com
-              </a>
-              <span class="hero-contact-item">
-                National City, CA
-              </span>
-            </div>
+          <h1 class="display-large hero-title">
+            Hi, I'm <span class="hero-name-accent">Omar Navarro</span>
+          </h1>
+          <p class="title-large hero-subtitle">Embedded Software Engineer</p>
+          <p class="body-large hero-bio">
+            <strong>15+ years</strong> building firmware and embedded systems for transportation, biometric security, and IoT — from microcontrollers to 600K-user transit networks.
+          </p>
+
+          <div class="hero-contact-info">
+            <a href="mailto:omar.navarroy@yahoo.com">
+              <span class="material-icons-round">email</span>
+              omar.navarroy@yahoo.com
+            </a>
+            <span class="hero-contact-item">
+              <span class="material-icons-round">location_on</span>
+              National City, CA
+            </span>
           </div>
+        </div>
 
-          <div class="hero-avatar">
-            <img src="./images/profile_e.png" alt="Omar Navarro — Embedded Software Engineer"
-              style="max-width: 150px;"/>
-          </div>
-
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-filled">            
+            Portfolio
+          </a>
+          <a href="resume.html" class="btn btn-filled">
+            Resume
+          </a>
+          <a href="resume.html" class="btn btn-filled">
+            <span class="material-icons-round" style="font-size:16px">description</span>
+            Download
+          </a>
         </div>
       </section>
   </main>
 
   <!-- ── FOOTER ── -->
-   <footer class="footer">
-    <div class="footer-logo">
-      <img src="./images/logot.png" alt="" style="max-width: 30px; max-height: 30px;">
-      <span>Omar Navarro</span>
+  <footer class="footer">
+    <div class="footer-logo">      
+      <span>Digital Resume</span>
     </div>
 
     <div class="social-icons">
@@ -140,35 +102,7 @@
     <div class="copyright">
       &copy; 2026 Omar Navarro. All rights reserved.
     </div>
-  </footer>
-  <!--
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <a href="index.html" class="nav-logo" style="font-size:1.25rem">
-          <img src="./images/logo.png" alt="personal logo" style="max-width: 100px;">
-          Omar Navarro
-        </a>
-        <ul class="footer-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="site-plan.html">Site Plan</a></li>
-        </ul>
-        <div class="social-links">
-          <a href="mailto:omar.navarroy@yahoo.com" >
-            <span>email</span>
-          </a>
-          <a href="tel:+16193527021">
-            <span>phone</span>
-          </a>
-        </div>
-        <p class="footer-copy">&copy; 2026 Omar Navarro. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  -->
+  </footer>  
 
 </body>
 </html>
