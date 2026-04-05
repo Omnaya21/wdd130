@@ -31,6 +31,12 @@ Fonts are separated by a | */
   --nav-hover-background-color: var(--accent1-color);
 
   --radius-full: 50%;
+
+  /* ── Spacing (4px base) ── */
+  --sp-1:  4px;  --sp-2:  8px;  --sp-3:  12px;
+  --sp-4:  16px; --sp-5:  20px; --sp-6:  24px;
+  --sp-8:  32px; --sp-10: 40px; --sp-12: 48px;
+  --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
 }
 
 /*  Look around below...but DON'T CHANGE ANYTHING! */
@@ -307,6 +313,23 @@ nav a:hover {
 #contact-form { display: flex; flex-direction: column; gap: var(--sp-4); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
 
+/* ─── Portfolio ─── */
+.portfolio-section { 
+  padding: var(--sp-20) 0; 
+}
+.portfolio-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: var(--sp-5); }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;  
+}
+.card img {
+  width: 100%;  
+}
 
 /* ─── Footer ─── */
 .footer {
