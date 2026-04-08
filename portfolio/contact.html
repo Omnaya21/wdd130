@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact Me | Let’s connect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* main card container */
+    .contact-card {
+      max-width: 1280px;
+      width: 50%;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+
+    /* right side – image + contact info */
+    .info-section {
+      background: var(--primary-color-light);
+      padding: 2.5rem 2rem 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #f0e5d8;
+    }
+
+
+    .subhead {
+      color: #4a627a;
+      border-left: 3px solid #e6b17e;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+      font-weight: 450;
+    }
+
+ 
+    /* demo note */
+    .demo-note {
+      font-size: 0.7rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #8ba0b2;
+      background: #f1f5f9;
+      display: inline-block;
+      width: 70%;
+      border-radius: 40px;
+      padding: 0.5rem;
+    }
+
+    /* right side – image */
+    .feelgood-img {
+      width: 100%;
+      border-radius: 1.5rem;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      margin-bottom: 2rem;
+    }
+
+    .feelgood-img:hover {
+      transform: scale(1.01);
+    }
+
+    /* contact details on the right */
+    .contact-details {
+      margin-top: 0.5rem;
+    }
+
+    .contact-details h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c4c6e;
+      margin-bottom: 1rem;
+      border-left: 3px solid #e6b17e;
+      padding-left: 0.8rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 0.7rem 1rem;
+      border-radius: 1.2rem;
+      backdrop-filter: blur(2px);
+      transition: all 0.2s;
+    }
+
+    .detail-item:hover {
+      background: white;
+      transform: translateX(4px);
+    }
+
+    .detail-icon {
+      font-size: 1.6rem;
+      min-width: 2.2rem;
+      text-align: center;
+    }
+
+    .detail-text {
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+
+    .detail-text p {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--primary-color);
+    }
+
+    .detail-text strong {
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .availability {
+      background: #eaf5e8;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2c6e49;
+    }
+
+    /* responsiveness */
+    @media (max-width: 880px) {
+      body {
+        padding: 1rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .info-section {
+        border-left: none;
+        border-top: 1px solid #f0e5d8;
+        padding: 2rem;
+      }
+      .form-section {
+        padding: 2rem;
+      }
+      .form-section h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-section, .info-section {
+        padding: 1.5rem;
+      }
+      .detail-item {
+        padding: 0.5rem 0.8rem;
+      }
+    }
+
+    /* subtle decoration */
+    .quote-text {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: #7e5e3c;
+      text-align: center;
+      border-top: 1px dashed #e9dccc;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-card">
+     
+      <!-- RIGHT COLUMN: IMAGE + CONTACT INFO (feel-good vibe) -->
+      <div class="info-section">
+        <!-- FEEL-GOOD IMAGE: warm, inviting workspace / laptop & coffee -->
+        <img 
+          class="feelgood-img" 
+          src="https://picsum.photos/id/0/600/450" 
+          alt="Cozy workspace with laptop, coffee, and natural light — feel-good atmosphere"
+          loading="lazy"
+        >
+        
+        <div class="contact-details">
+          <h3>Reach out directly</h3>
+          
+          <div class="detail-item">
+            <div class="detail-icon">📧</div>
+            <div class="detail-text">
+              <strong>Email</strong>
+              <p>hello@digitalresume.me</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-icon">📞</div>
+            <div class="detail-text">
+              <strong>Phone / Signal</strong>
+              <p>+1 (415) 867-5309</p>
+            </div>
+          </div>
+          
+         
+          <div class="detail-item">
+            <div class="detail-icon">🌐</div>
+            <div class="detail-text">
+              <strong>Social / Web</strong>
+              <p>@jamiereative & github.com/jr-portfolio</p>
+            </div>
+          </div>
+          
+          <div class="quote-text">
+            “Design is not just what it looks like, but how it connects.” ✨
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</body>
+</html>
