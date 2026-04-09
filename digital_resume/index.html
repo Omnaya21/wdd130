@@ -36,11 +36,12 @@
                   
       </nav>
       <div class="nav-cta">
-          <a href="resume.html" class="btn btn-filled btn-sm">
+          <a href="resumet.pdf" class="btn btn-filled btn-sm" onclick="showSnackbar()" download>
             <span class="material-icons-round" style="font-size:16px">description</span>
             Download
-          </a>
-        </div>
+          </a>   
+          <div id="snackbar">Resume file downloaded successfully!</div>       
+      </div>
   </header>
 
   <main>
@@ -79,7 +80,7 @@
           <a href="resume.html" class="btn btn-filled">
             Resume
           </a>
-          <a href="resume.html" class="btn btn-filled">
+          <a href="resumet.pdf" class="btn btn-filled" onclick="showSnackbar()" download>
             <span class="material-icons-round" style="font-size:16px">description</span>
             Download
           </a>
@@ -105,5 +106,17 @@
     </div>
   </footer>  
 
+  <script>
+    function showSnackbar() {
+      // Get the snackbar DIV
+      var x = document.getElementById("snackbar");
+
+      // Add the "show" class to DIV
+      x.className = "show";
+
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+  </script>
 </body>
 </html>

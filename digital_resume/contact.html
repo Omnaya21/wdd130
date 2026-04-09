@@ -29,11 +29,12 @@
           <li><a class="active" href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="resume.html" class="btn btn-filled btn-sm">
+          <a href="resumet.pdf" class="btn btn-filled btn-sm" onclick="showSnackbar()" download>
             <span class="material-icons-round" style="font-size:16px">description</span>
             Download
-          </a>
-        </div>          
+          </a>   
+          <div id="snackbar">Resume file downloaded successfully!</div>       
+      </div>          
       </nav>
   </header>
 
@@ -56,35 +57,27 @@
             loading="lazy"
           >
           
-          <div class="contact-details">
-            <h3>Reach out directly</h3>
-            
-             
--           <a href="tel:+16193527021">+1 (619) 352-7021</a>
--           <a href="https://www.linkedin.com/in/omar-navarro/" target="_blank" rel="noopener noreferrer">linkedin.com/in/omar-navarro</a>
+          <div class="contact-details">                        
 
             <div class="detail-item">
-              <div class="detail-icon">📧</div>
-              <a href="mailto:omar.navarroy@yahoo.com">omar.navarroy@yahoo.com</a>
+              <a href="#"><i class="fa fa-envelope"></i></a>
               <div class="detail-text">
-                <p>omar.navarroy@yahoo.com</p>
+                <a href="mailto:omar.navarroy@yahoo.com">omar.navarroy@yahoo.com</a>
               </div>
             </div>
             
             <div class="detail-item">
-              <a href="#"><i class="fa fa-phonegit "></i></a>
+              <a href="#"><i class="fa fa-phone"></i></a>
               <div class="detail-text">
-                <p>+1 (619) 352-7021</p>
+                <a href="tel:+16193527021">+1 (619) 352-7021</a>
               </div>
             </div>
             
           
             <div class="detail-item">
-              <div class="detail-icon">🌐</div>
+              <a href="#"><i class="fa fa-globe"></i></a>
               <div class="detail-text">
-                <strong>Social / Web</strong>
-                <p>@jamiereative & github.com/jr-portfolio</p>
-                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/omar-navarro/" target="_blank" rel="noopener noreferrer">linkedin.com/in/omar-navarro</a>
+                <a href="https://www.linkedin.com/in/omar-navarro/" target="_blank" rel="noopener noreferrer">linkedin.com/in/omar-navarro</a>                
               </div>
             </div>
             
@@ -118,5 +111,17 @@
     </div>
   </footer> 
 
+  <script>
+    function showSnackbar() {
+      // Get the snackbar DIV
+      var x = document.getElementById("snackbar");
+
+      // Add the "show" class to DIV
+      x.className = "show";
+
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+  </script>
 </body>
 </html>
