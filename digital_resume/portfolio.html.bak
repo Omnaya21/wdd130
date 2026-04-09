@@ -27,15 +27,14 @@
           <li><a href="resume.html">Resume</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-                  
-      </nav>
-      <div class="nav-cta">
+        <div class="nav-cta">
           <a href="resumet.pdf" class="btn btn-filled btn-sm" onclick="showSnackbar()" download>
             <span class="material-icons-round" style="font-size:16px">description</span>
             Download
           </a>   
           <div id="snackbar">Resume file downloaded successfully!</div>       
-      </div>
+      </div>         
+      </nav>
   </header>
 
   <main>
